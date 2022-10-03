@@ -2,6 +2,7 @@ import './App.css';
 import { Routes, Route} from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import CreatePage from './pages/CreatePage';
+import EventPage from './pages/EventPage';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />}/>
         <Route path="/create" element={<CreatePage />}/>
-        <Route path="/event" />
+        <Route path="/event" element={<EventPage/>} />
       </Routes>
 
       

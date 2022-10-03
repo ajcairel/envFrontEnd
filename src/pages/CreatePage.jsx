@@ -4,7 +4,7 @@ import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import TextField from "@mui/material/TextField";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import './CreatePage.css';
+import "./CreatePage.css";
 
 export default function CreatePage() {
   function getCurrentDate(separator = "") {
@@ -18,32 +18,33 @@ export default function CreatePage() {
     }${separator}${date}`;
   }
 
-  const userName = useRef();
-  const userEmail = useRef();
+  const eventName = useRef();
+  const hostName = useRef();
   const userDate = useRef();
   const navigate = useNavigate();
-  const [value, setValue] = useState(getCurrentDate);
+  const [startValue, setStartValue] = useState(getCurrentDate);
+  const [endValue, setEndValue] = useState(getCurrentDate);
 
-  const handleChange = (newValue) => {
-    setValue(newValue);
+  const handleStartChange = (newStartValue) => {
+    setStartValue(newStartValue);
+  };
+  const handleEndChange = (newEndValue) => {
+    setEndValue(newEndValue);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate("/event", {
       state: {
-        userName: userName.current.value,
-        userEmail: userEmail.current.value,
-        userDate: value,
+        eventName: eventName.current.value,
+        hostName: hostName.current.value,
+        startDate: startValue,
+        endDate: endValue,
       },
     });
   };
 
   return (
-
-    
-
-    
     // <form>
     //   <div>
     //     <label htmlFor="name">Event Name</label>
@@ -80,48 +81,104 @@ export default function CreatePage() {
     //   </button>
     // </form>
 
-
     <div id="landing-image">
-        <div class="w-full max-w-xs">
-    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-            Username
-        </label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Event Name"/>
-        </div>
-        <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-            Username
-        </label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Event Name"/>
-        </div>
-        <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-            Username
-        </label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Event Name"/>
-        </div>
-        {/* <div class="mb-6">
+      <div class="w-full max-w-xs">
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="username"
+            >
+              Event
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="username"
+              type="text"
+              ref={eventName}
+              placeholder="Event Name"
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="username"
+            >
+              Hosted By
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="username"
+              type="text"
+              ref={hostName}
+              placeholder="Host Name"
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="username"
+            >
+              Starts
+            </label>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DateTimePicker
+           
+            value={startValue}
+            ref={userDate}
+            onChange={handleStartChange}
+            renderInput={(params) => <TextField {...params} />}
+            />
+        </LocalizationProvider>
+          </div>
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="username"
+            >
+              Ends
+            </label>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DateTimePicker
+           
+            value={endValue}
+            ref={userDate}
+            onChange={handleEndChange}
+            renderInput={(params) => <TextField {...params} />}
+            />
+        </LocalizationProvider>
+          </div>
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="username"
+            >
+              Event Image
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              input type="file" id="img" name="img" accept="image/*"
+            />
+          </div>
+          {/* <div class="mb-6">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-            Password
+        Password
         </label>
         <input class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************"/>
         <p class="text-red-500 text-xs italic">Please choose a password.</p>
         </div> */}
-        <div class="items-center justify-between">
-        <button id="submit-event-button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-            Sign In
-        </button>
-        </div>
-    </form>
-   
+          <div class="items-center justify-between">
+            <button
+                onClick={handleSubmit}
+              id="submit-event-button"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="submit"
+            >
+              Create Event
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-
-    </div>
-
-    
-
-   
   );
 }
