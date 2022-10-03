@@ -21,6 +21,7 @@ export default function CreatePage() {
   const eventName = useRef();
   const hostName = useRef();
   const userDate = useRef();
+  const eventLocation = useRef();
   const navigate = useNavigate();
   const [startValue, setStartValue] = useState(getCurrentDate);
   const [endValue, setEndValue] = useState(getCurrentDate);
@@ -38,6 +39,7 @@ export default function CreatePage() {
       state: {
         eventName: eventName.current.value,
         hostName: hostName.current.value,
+        eventLocation: eventLocation.current.value,
         startDate: startValue,
         endDate: endValue,
       },
@@ -45,49 +47,13 @@ export default function CreatePage() {
   };
 
   return (
-    // <form>
-    //   <div>
-    //     <label htmlFor="name">Event Name</label>
-    //     <input id="name" type="text" ref={userName} name="name" />
-    //   </div>
-    //   <div>
-    //     <label htmlFor="email">Host Name</label>
-    //     <input id="email" type="email" ref={userEmail} name="email" />
-    //   </div>
-    //   <LocalizationProvider dateAdapter={AdapterDayjs}>
-    //     <DateTimePicker
-    //       label="Starts"
-    //       value={value}
-    //       ref={userDate}
-    //       onChange={handleChange}
-    //       renderInput={(params) => <TextField {...params} />}
-    //     />
-    //   </LocalizationProvider>
-    //   <LocalizationProvider dateAdapter={AdapterDayjs}>
-    //     <DateTimePicker
-    //       label="Ends"
-    //       value={value}
-    //       ref={userDate}
-    //       onChange={handleChange}
-    //       renderInput={(params) => <TextField {...params} />}
-    //     />
-    //   </LocalizationProvider>
-    //   <div>
-    //     <label for="img">Event Image:</label>
-    //     <input type="file" id="img" name="img" accept="image/*" />
-    //   </div>
-    //   <button onClick={handleSubmit} type="submit">
-    //     Submit
-    //   </button>
-    // </form>
-
     <div id="landing-image">
       <div class="w-full max-w-xs">
         <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <div class="mb-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="username"
+              
             >
               Event
             </label>
@@ -102,7 +68,7 @@ export default function CreatePage() {
           <div class="mb-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="username"
+              
             >
               Hosted By
             </label>
@@ -114,50 +80,67 @@ export default function CreatePage() {
               placeholder="Host Name"
             />
           </div>
+          {/* <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              
+            >
+              Location
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="username"
+              type="text"
+              ref={eventLocation}
+              placeholder="Host Name"
+            />
+          </div> */}
           <div class="mb-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="username"
+              
             >
               Starts
             </label>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DateTimePicker
-           
-            value={startValue}
-            ref={userDate}
-            onChange={handleStartChange}
-            renderInput={(params) => <TextField {...params} />}
-            />
-        </LocalizationProvider>
+              <DateTimePicker
+                value={startValue}
+                ref={userDate}
+                onChange={handleStartChange}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
           </div>
           <div class="mb-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
-              for="username"
+              
             >
               Ends
             </label>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DateTimePicker
-           
-            value={endValue}
-            ref={userDate}
-            onChange={handleEndChange}
-            renderInput={(params) => <TextField {...params} />}
-            />
-        </LocalizationProvider>
+              <DateTimePicker
+                value={endValue}
+                ref={userDate}
+                onChange={handleEndChange}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
           </div>
           <div class="mb-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
-              for="username"
+              
             >
               Event Image
             </label>
             <input
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              input type="file" id="img" name="img" accept="image/*"
+              input
+              type="file"
+              id="img"
+              name="img"
+              accept="image/*"
             />
           </div>
           {/* <div class="mb-6">
@@ -169,7 +152,7 @@ export default function CreatePage() {
         </div> */}
           <div class="items-center justify-between">
             <button
-                onClick={handleSubmit}
+              onClick={handleSubmit}
               id="submit-event-button"
               class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
