@@ -46,27 +46,31 @@ export default function EventPage(){
 
     return (
         <>
-            <h1>{location.state.eventName}</h1>
-            <h1>{starty}</h1>
-            <h1>{startDay}</h1>
-            <h1>{endDay}</h1>
-            <h1>{endy}</h1>
-            <h2>{location.state.hostName}</h2>
+            <div id="event-image">
+                <img src="./BdayCakeEnv.png" alt="cake" />
+               
+            <h1 id="event-name">{location.state.eventName}</h1>
+            <h2 id="host-name">Hosted By {location.state.hostName}</h2>
+            </div>
+            <div id="date">
+                <div id="date-info">
+                    <h1 id="start-time">{startDay} {starty} {startTime}</h1>
+                    <h2 id="end-time">{endDay} {endy} {endTime}</h2>
+
+                </div>
+
+            </div>
+            {/* <h1>{starty}</h1> */}
+           
+
+            
+            
             <h2>{eventStartDate} @ {startTime}</h2>
             <h2>{eventEndDate} @ {endTime}</h2>
             {/* <h2>{location.state.userDate}</h2> */}
             <h3>pls</h3>
 
-            <h1 id="event-name">{location.state.eventName}</h1>
-            <h4 id="host-name">Hosted By{location.state.hostName}</h4>
-            <div id="event-image">
-                <img src="./BdayCakeEnv.png" alt="cake" />
-               
-            </div>
-
-            <div id="start-end">
-                <h4 id="start"></h4>
-            </div>
+           
 
             
         

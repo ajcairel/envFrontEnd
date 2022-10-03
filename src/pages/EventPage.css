@@ -1,52 +1,136 @@
 body {
-    background-color: #DDDDDD;;
+  background-color: #dddddd;
+}
+
+#event-name {
+  position: absolute;
+  width: 327px;
+  height: 37px;
+  left: calc(50% - 327px / 2 - 4px);
+  top: 386px;
+
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+
+  color: #240d57;
+}
+
+#host-name {
+  position: absolute;
+  width: 341px;
+  height: 15px;
+  left: calc(50% - 341px / 2 + 3px);
+  top: 427px;
+
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+
+  color: #828282;
+}
+
+#start-time {
+  width: 138px;
+  height: 18px;
+
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+
+  color: #240d57;
+}
+
+#end-time {
+  width: 197px;
+  height: 16px;
+
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  /* identical to box height */
+
+  color: #4f4f4f;
+}
+
+#date{
+    display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 8px;
+gap: 137px;
+
+position: absolute;
+width: 349.57px;
+height: 64px;
+left: calc(50% - 349.57px/2 - 0.72px);
+top: 466px;
+
+border-radius: 10px;
+}
+
+#date-info {
+    display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 20px;
+
+width: 277px;
+height: 48px;
+
 }
 
 @media (min-width: 1024px) {
+  #event-name {
+    position: absolute;
+    width: 333px;
+    height: 37px;
+    left: 240px;
+    top: 194px;
 
-    #event-name {
-        position: absolute;
-width: 333px;
-height: 37px;
-left: 240px;
-top: 194px;
+    font-family: "Helvetica";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 55px;
+    display: flex;
+    align-items: center;
 
-font-family: 'Helvetica';
-font-style: normal;
-font-weight: 700;
-font-size: 48px;
-line-height: 55px;
-display: flex;
-align-items: center;
-
-color: #240D57;
-    }
-    #event-image {
-        position: absolute;
-width: 500px;
-height: 500px;
-left: calc(50% - 500px/2 + 266px);
-top: 184px;
-
-
-border-radius: 0px;
-    }
-
-    #host-name {
-        position: absolute;
-width: 155px;
-height: 15px;
-left: 240px;
-top: 248px;
-
-font-family: 'Helvetica';
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height: 21px;
-
-color: #828282;
-    }
-    
+    color: #240d57;
   }
-  
+  #event-image {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    left: calc(50% - 500px / 2 + 266px);
+    top: 184px;
+
+    border-radius: 0px;
+  }
+
+  #host-name {
+    position: absolute;
+    width: 155px;
+    height: 15px;
+    left: 240px;
+    top: 248px;
+
+    font-family: "Helvetica";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+
+    color: #828282;
+  }
+}

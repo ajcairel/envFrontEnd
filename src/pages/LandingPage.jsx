@@ -8,7 +8,7 @@ export default function LandingPage() {
         <div id="heading-text">
             <h1 id="header">
                 Imagine if 
-                <span id="snapchat">Snapchat</span> had events.
+                <span id="snapchat"> Snapchat <br /></span> had events.
             </h1>
             <h3 id="description">
             Easily host and share events with your friends across any social media.
