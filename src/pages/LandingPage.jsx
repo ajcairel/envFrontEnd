@@ -21,7 +21,7 @@ export default function LandingPage() {
         </div>
 
         <Link to="/create">
-            <button id="create-button">Create My Event</button>
+            <button id="create-button"> &#127881;Create my event</button>
         </Link>
 
         </>
