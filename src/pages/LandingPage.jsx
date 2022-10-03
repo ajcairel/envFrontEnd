@@ -1,5 +1,9 @@
 export default function LandingPage() {
     return (
-        <h1>Hello World</h1>
+
+        <div className="bg-envBG">
+            <h1>Hello World</h1>
+
+        </div>
     );
 }

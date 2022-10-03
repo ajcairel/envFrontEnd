@@ -8,8 +8,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<LandingPage />}/>
-        <Route path="/create"/>
-        <Route path="/event"/>
+        <Route path="/create" />
+        <Route path="/event" />
       </Routes>
 
       
