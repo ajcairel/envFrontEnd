@@ -80,7 +80,7 @@ export default function CreatePage() {
               placeholder="Host Name"
             />
           </div>
-          {/* <div class="mb-4">
+          <div class="mb-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
               
@@ -94,7 +94,7 @@ export default function CreatePage() {
               ref={eventLocation}
               placeholder="Host Name"
             />
-          </div> */}
+          </div>
           <div class="mb-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
@@ -105,7 +105,7 @@ export default function CreatePage() {
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DateTimePicker
                 value={startValue}
-                ref={userDate}
+                // ref={userDate}
                 onChange={handleStartChange}
                 renderInput={(params) => <TextField {...params} />}
               />
@@ -121,7 +121,7 @@ export default function CreatePage() {
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DateTimePicker
                 value={endValue}
-                ref={userDate}
+                // ref={userDate}
                 onChange={handleEndChange}
                 renderInput={(params) => <TextField {...params} />}
               />
